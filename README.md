@@ -17,7 +17,7 @@ Antes de tudo, é necessário ter instalado no seu computador:
 ### Instale todas as Depedências
 - yarn install
 ### Execute o Mongodb no seu computador
-- Abra o prontp de comando e digite mongod(uso apenas windows, não sei o comando para linux)
+
 ### Execute a Aplicação
 - yarn start
 ### A Aplicação será aberta na port:3000 - http://localhost:3000 do seu navegador
@@ -26,11 +26,4 @@ Antes de tudo, é necessário ter instalado no seu computador:
 -http://localhost:3000/api-docs/
 
 
-Observações
-
-> No meu dia a dia não usamos testes automáticos, consequentemente não tenho pratica com eles, motivo pelo qual não implementei, mesmo motivo pelo qual não apliquei principios do SOLID.
-> Infelizmente tenho pouco tempo para me dedicar ao teste, acabei não fazendo algumas funções da API.
-> Agradeço a oportunidade e coloco a disposição, caso queiram, alguns codigos desenvolvidos durante meu trabalho atual.
-
-Guilherme Jordão
 
