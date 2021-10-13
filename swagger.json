@@ -1,0 +1,223 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API - Movies And Users",
+    "description": "Documentação para Api de Desafio",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "paths": {
+    "/filtermovies": {
+      "get": {
+        "description": "Rota que filmes em geral por Lista " ,
+        "sumary": "Busca de Filmes",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "type": "number",
+            "required": true,
+            "description":"Tipo de Categoria - 1-Now Playing | 2-Popular  | 3-Top Rated | 4-Upcoming"
+          },
+          {
+            "in": "query",
+            "name": "numberpages",
+            "type": "number",
+            "required": true,
+            "description":" Quantidade de Páginas a serem Exibidas"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/movies": {
+      "get": {
+        "description": "Rota Lista busca Filmes na Api Externa",
+        "sumary": "Exibir Filmes Aleátorios",
+        "tags": [
+          "Movies"
+        ],       
+        "responses": {
+          "400": {
+            "description": "Erro na Consulta"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/adduser": {
+      "post": {
+        "description": "Rota que cadastra novos Usuários",
+        "sumary": "Rota Cadastro de usuários",
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "number"
+                  }
+                },
+                "example": {
+                  "name": "Guilherme",
+                  "email": "guijmoraes@hotmail.com",
+                  "password": 123456
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "This user already exist"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/listusers": {
+      "get": {
+        "description": "Rota Lista todos os Usuários Cadastrados",
+        "sumary": "Exibir usuários cadastrados",
+        "tags": [
+          "User"
+        ],       
+        "responses": {
+          "400": {
+            "description": "Erro"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/addmoviewishlist": {
+      "put": {
+        "description": "Rota para inserir filmes na lista de desejos",
+        "sumary": "Inserir filmes na lista de desejos",
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "object"
+                  },
+                  "wishList": {
+                    "title": {
+                      "type": "String"
+                    },
+                    "comentary": {
+                      "type": "String"
+                    },
+                    "note": {
+                    "type": "Number"
+                    },
+                    "stars": {
+                    "type": "Number"
+                    },
+                    "publicAvaliation": {
+                      "type": "Boolean"
+                    }
+                  }
+                },
+                "example": {                  
+                    "id":"611d825b495408386cff3641",
+                    "wishList":{		
+                      "title" :"Matrix",
+                      "note" :8,
+                      "stars" :1,
+                      "public": true,
+                      "comentary": "film é top"	
+                    }	
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "This user already exist"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "/editmovie": {
+        "put": {
+          "description": "Rota atualizar Notas e Estrelas",
+          "sumary": "Atualizar notas e Estrelas",
+          "tags": [
+            "User"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "object"
+                    },
+                    "idMovie": {
+                      "type": "object"
+                    },
+                    "note": {
+                      "type": "number"
+                    },
+                    "stars": {
+                      "type": "number"
+                    }
+                   
+                  },
+                  "example": {                  
+                    "id":"611d825b495408386cff3641",
+                    "idMovie":"611d82db495408386cff3645",
+                    "note" :10,
+                    "stars" :5	
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "Erro ao atualizar as notas dos filmes"
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+    }
+  }
